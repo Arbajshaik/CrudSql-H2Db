@@ -31,8 +31,9 @@ public class ProductService {
 	}
 
 	public Product getProductById(int id) throws Exception {
+		Product product = null;
 		try {
-			Product product = repository.findById(id).orElse(null);
+			product = repository.findById(id).orElse(null);
 			if (product != null) {
 				return product;
 			} else {
@@ -40,9 +41,9 @@ public class ProductService {
 			}
 		} catch (Exception e) {
 
-			throw new Exception("Requested resource with id" + id + "not found");
+			System.out.println("Exception Occured" + e);
 		}
-
+		return product;
 	}
 
 	public String deleteProduct(int id) {
