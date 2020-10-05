@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -22,7 +23,7 @@ public class Product {
 	@Id
 	@GeneratedValue
 	private int id;
-	
+	@Column(name="name")
 	private String name;
 	
 	private int quantity;

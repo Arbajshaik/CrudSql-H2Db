@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.ProductRequest;
 import com.example.demo.entity.Product;
+import com.example.demo.exception.ProductNotFoundException;
 import com.example.demo.service.ProductService;
 
 @RequestMapping("/productcategory")
@@ -38,12 +39,12 @@ public class ProductController {
 	}
 
 	@GetMapping("/product/{id}")
-	public Product findProductById(@PathVariable int id) throws Exception {
+	public Product findProductById(@PathVariable int id) throws  ProductNotFoundException {
 		return service.getProductById(id);
 	}
 
 	@GetMapping("/Product/{name}")
-	public Product findProductByname(@PathVariable String name) {
+	public Product findProductByname(@PathVariable String name) throws ProductNotFoundException {
 		return service.getProductByname(name);
 	}
 
